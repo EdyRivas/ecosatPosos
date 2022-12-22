@@ -1,0 +1,180 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.example-sidenav-container {
+    flex: 1;
+}
+
+#mainDiv {
+    width: 100%;
+}
+
+.example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    display: flex auto;
+    top: 0%;
+    padding: 0%;
+    margin: 0%;
+}
+
+.menuheigth {
+    height: 45px;
+}
+
+
+/* img {
+    height: 100%;
+  }
+   */
+
+.sideDrawer {
+    width: 230px;
+    background-color: white;
+}
+
+.profileImgCont {
+    height: 90px;
+    width: 90px;
+    border-radius: 100%;
+    border: #3b3b3b 3px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgCont {
+    height: 73px;
+    width: 73px;
+    border-radius: 100%;
+    border: #3b3b3b 2px solid;
+    background-color: white;
+    overflow: hidden;
+    ;
+}
+
+.userImg {
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.drawerCont {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: baseline;
+}
+
+mat-toolbar {
+    display: none;
+}
+
+.upBar {
+    height: 50px;
+    width: 100%;
+    /* padding: 10px; */
+    background-color: #3b3b3b;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    box-shadow: 0px -20px 6px 21px rgb(0 0 0 / 37%);
+}
+
+.burgerBtn {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: white !important;
+}
+
+.profileCont {
+    padding: 20px;
+    text-align: center;
+    color: #3b3b3b;
+    font-weight: bold;
+}
+
+.nabBtns {
+    width: 100%;
+}
+
+.btnList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.btnListado,
+.logout {
+    width: 100% !important;
+    height: 50px !important;
+    border-radius: 0 !important;
+    margin-bottom: 10px;
+    background-color: white;
+    color: #3b3b3b;
+    box-shadow: none !important;
+    transition: all ease-in-out .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btnListado:hover {
+    filter: brightness(1.5);
+}
+
+.logout {
+    position: absolute;
+    bottom: 3px;
+    font-size: 12px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 0 !important;
+}
+
+.cerrarH6 {
+    margin: 0 !important;
+}
+
+.logout:hover {
+    background-color: darkred !important;
+    color: white;
+}
+
+.btnFull {
+    background-color: transparent;
+    transition: scale ease .19s, background-color ease .10s;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    color: white;
+}
+
+.btnFull:active {
+    scale: .89;
+    background-color: #2f343c13;
+}
+
+.margin {
+    margin: 0 10px;
+}
+
+#noFull {
+    display: none;
+}

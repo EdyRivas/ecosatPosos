@@ -1,1 +1,206 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #f2f2f2;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+.lblUp {
+    display: block;
+    margin-left: 4px;
+    font-weight: 400;
+}
+
+.input {
+    position: relative;
+    cursor: text;
+    width: 90%;
+    padding: 7px 0 7px 7px;
+    border: solid 1px #a1adb6a1;
+    border-radius: 5px;
+    outline: none;
+    transition: all ease 0.25s;
+    background-color: white !important;
+    box-sizing: border-box;
+}
+
+.input:focus {
+    border-bottom: 2px solid #123c81 !important;
+    border-radius: 7px 7px 0 0 !important;
+    background-color: rgb(87 133 233 / 11%) !important;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.w50 {
+    width: 50%;
+}
+
+.flx {
+    display: flex;
+}
+
+.jcc {
+    display: flex;
+    justify-content: center;
+}
+
+.alic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h100 {
+    height: 100%;
+}
+
+button {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.carta {
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 22%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0!important;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+.mat-drawer-content {
+    background-color: #ccd0d3 !important;
+}
+
+.txac {
+    text-align: center;
+}
+
+.mat-horizontal-content-container {
+    height: 87%;
+    padding: 0 24px 0 24px !important;
+}
+
+// .mat-horizontal-stepper-content {
+//     height: 100%;
+//     overflow: auto;
+// }
+
+/* #region estilo tablas */
+
+.example-container {
+    overflow: auto;
+    border-radius: 7px;
+}
+
+td {
+    padding: 6px !important;
+    border-bottom: 1px solid #bdbdbd !important;
+    text-align: center !important;
+    background-color: transparent;
+    font-size: 14px !important;
+}
+
+:host td {
+    padding: 2px 5px !important;
+    text-align: center !important;
+}
+
+th {
+    padding: 5px !important;
+    background-color: #1c3660;
+    color: white !important;
+    border-right: 1px solid #dedede;
+    font-size: 12px !important;
+    border-bottom: 1px solid white !important;
+    text-align: center !important;
+    width: 150px !important;
+}
+
+table th:last-child {
+    border-right: none !important;
+}
+
+tr {
+    background-color: white;
+}
+
+tr:nth-child(even) {
+    background: #dfdde9 !important;
+}
+
+tr.mat-header-row {
+    height: 35px!important;
+}
+
+tbody tr {
+    height: 38px !important;
+}
+
+table {
+    border-radius: 7px;
+    background-color: #1c3660;
+    border: #1c3660 solid 1px;
+    box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.17);
+    border-collapse: collapse;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.tableCont {
+    overflow: auto;
+}
+
+.header {
+    background-color: #1c3660;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+}
+
+.mat-drawer-container {
+    border-radius: 0;
+}
+
+.mat-drawer-backdrop.mat-drawer-shown {
+    background-color: transparent !important;
+}
+
+
+/* #endregion  */
