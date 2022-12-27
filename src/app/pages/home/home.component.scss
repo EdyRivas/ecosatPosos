@@ -1,0 +1,76 @@
+.cartaCus {
+    width: 92% !important;
+    height: 90% !important;
+    overflow: hidden;
+}
+
+.h90 {
+    height: 90%;
+}
+
+.mapHeader {
+    overflow: auto;
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-image: url(./../../../assets/images/backgrounds/map.png);
+    background-repeat: no-repeat;
+}
+
+.rela {
+    position: relative;
+}
+
+.btnChange {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    height: 24px;
+}
+
+.ubi {
+    height: 90px;
+    transition: all ease .2s;
+    filter: drop-shadow(5px 4px 2px #2a2a30a5);
+}
+
+.ubi:hover {
+    scale: 1.08;
+    filter: brightness(1.2) drop-shadow(5px 4px 2px#2a2a30a5);
+    ;
+    cursor: pointer;
+}
+
+.ubi:active {
+    scale: .9 !important;
+    filter: brightness(.8) drop-shadow(5px 4px 2px #2a2a30a5);
+}
+
+.ubicacion {
+    position: absolute;
+    left: 37%;
+    top: 20%;
+}
+
+.h95 {
+    height: 95%;
+}
+
+.cartaDetalle {
+    position: absolute;
+    background-color: white;
+    width: 65%;
+    z-index: 3;
+    right: 0;
+    border-radius: 20px 0 0 20px;
+    box-shadow: -3px 0px 6px -2px #48485c;
+    overflow: hidden;
+    display: none;
+    transition: all ease .3s;
+    top: 0;
+}
+
+.pad40 {
+    padding: 40px;
+}

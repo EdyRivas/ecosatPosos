@@ -1,1 +1,38 @@
-<p>home works!</p>
+<div class="flx w100 h95">
+
+    <div class="w100 h90 rela">
+        <button (click)="changeMap()" class="btnChange" mat-raised-button>Cambiar fondo</button>
+        <div class="alic h100">
+            <div class="carta cartaCus">
+                <div id="map" class="mapHeader rela">
+                    <div class="ubicacion">
+                        <img (click)="abrirDetalle()" class="ubi" src="./../../../assets/images/icons/iconPozo.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="detalle" class="cartaDetalle h100">
+
+        <div class="header">
+            <h1>Pozo 1</h1>
+        </div>
+        <div class="pad40 jcc">
+            <div class="w100">
+                <div class="flx jcc">
+                    <div class="w50">
+                        <app-water-measure></app-water-measure>
+                    </div>
+                    <div class="w50">
+                        <app-energy-button [idN]="'engSilo'"></app-energy-button>
+                    </div>
+                </div>
+                <div class="flx jcc">
+                    <div>
+                        <app-level-water-measure></app-level-water-measure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="centered">
+    <button (click)="changeEnergy(idN)" [id]="idN" [ngClass]="!theme?'btnEnergy1':'btnEnergy2'">
+        <i [id]="idN +'flashIcon'" class="fa-solid fa-bolt iconFlash"></i>
+        <i [id]="idN +'inner'"class="fa-solid fa-bolt eng"></i>
+    </button>
+</div>
+<button hidden [id]="idN+'auxBtn'" (click)="aux(idN)"></button>
