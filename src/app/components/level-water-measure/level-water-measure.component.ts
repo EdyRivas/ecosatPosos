@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-level-water-measure',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./level-water-measure.component.scss']
 })
 export class LevelWaterMeasureComponent {
-
+  @Input() idM: string
+  medidor
+  ngOnInit(): void {
+    this.medidor = this.idM+'-medidor'
+  }
 }
