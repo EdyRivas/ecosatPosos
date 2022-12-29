@@ -1,31 +1,34 @@
 <div class="flx">
     <div class="rela w50">
-
         <img class="pozo" src="./../../../assets/images/icons/bomba.png" alt="">
-        <!-- <div class="content">
-        a
-    </div> -->
-        <!-- <div class="content2">
-        
-    </div> -->
-
         <div [id]="bomba" class="mainBody">
-
-            <div class="water">
-
-            </div>
+            <div class="water"></div>
             <div class="bodyGrow rela">
                 <div class="fill">
-
                 </div>
             </div>
         </div>
     </div>
 
     <div class="centered w50">
-        <button (click)="changeEnergy(idN)" [id]="idN" class="btnEnergy1">
+        <button (click)="changeEnergy(idN)" [id]="idN" class="float btnEnergy1">
         <i [id]="idN +'flashIcon'" class="fa-solid fa-bolt iconFlash"></i>
         <i [id]="idN +'inner'"class="fa-solid fa-bolt eng"></i>
     </button>
+    </div>
+</div>
+<div>
+    <div class="bottleCont">
+        <div [id]="level" class="pipes">
+
+        </div>
+        <div class="scale">
+
+        </div>
+    </div>
+    <div>
+        <h2 [id]="measure">
+            100%
+        </h2>
     </div>
 </div>
