@@ -42,16 +42,22 @@ export class HomeComponent {
   animateSideShow(id:string){
     let component = document.getElementById(id) as HTMLElement;
     let element = component.style;
+    element.minWidth = 'initial';
     element.width = '0';
     element.display = 'block';
     setTimeout(() => {
       element.width = '' 
+      setTimeout(() => {
+        
+        element.minWidth = '' 
+      }, 200);
       component.classList.add('show')
     }, 300);
   }
   animateSideHide(id:string){
     let component = document.getElementById(id) as HTMLElement;
     let element = component.style;
+    element.minWidth = 'initial';
     element.width = '0';
     setTimeout(() => {
       element.display = 'none';
