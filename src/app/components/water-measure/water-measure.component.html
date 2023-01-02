@@ -21,6 +21,13 @@
                     <i [id]="idN +'inner'"class="fa-solid fa-bolt eng"></i>
                 </button>
             </div>
+            <div class="redLed">
+                <div title="Encendido" [ngClass]="false?'on' : 'off'">
+                    <div [ngClass]="false?'shine' : 'shineOff'">
+                        <div class="shiny"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="alibot rela">
@@ -67,5 +74,6 @@
             </div>
             <button hidden [id]="pressure+'aux'" (click)="auxDeg(pressure)"></button>
         </div>
+
     </div>
 </div>
