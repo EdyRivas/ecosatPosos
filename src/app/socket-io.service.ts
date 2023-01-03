@@ -22,10 +22,14 @@ export class SocketIOService {
       })
     })
   }
-
-  on = "A8 01 06 01 06 00 01 00 01 FF";
-  off = "A8 01 06 01 06 00 01 00 00 FF";
-  onTurnBombaOn(){
-    this.socketIO.emit("SendaData",JSON.stringify(this.on.split(' ').join('')));
+  
+  on = "A8 01 06 01 06 00 01 00 01 FF".split(' ').join('');
+  off = "A8 01 06 01 06 00 01 00 00 FF".split(' ').join('');
+  onTurnBombaOn = () => {
+      this.socketIO.emit("SendaData",JSON.stringify(this.on));
+  }
+  onTurnBombaOff = () => {
+  
+    this.socketIO.emit("SendaData",JSON.stringify(this.off));
   }
 }

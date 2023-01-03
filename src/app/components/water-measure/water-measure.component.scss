@@ -26,7 +26,7 @@
     animation: animate2 4s ease-in-out infinite;
     background-color: rgba(132, 171, 242, 0.715);
     width: 145px;
-    height: 10%;
+    height: 20%;
 }
 
 .mainBody {
@@ -35,7 +35,7 @@
     left: 50px;
     height: 196px;
     overflow: hidden;
-    width: 92px;
+    width: 91px;
     display: flex;
     align-items: end;
 }
@@ -120,7 +120,7 @@
     font-size: 26px;
     position: absolute;
     top: 0;
-    right: -15px;
+    right: -50px;
 }
 
 .prof {
@@ -187,6 +187,30 @@ h2 {
     position: absolute;
 }
 
+.contLoad {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease .3s
+}
+
+.cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 123123;
+}
+
+.frame {
+    transition: all ease .3s
+}
+
 //#region pressure
 .speedometer {
     width: 121px;
@@ -199,6 +223,7 @@ h2 {
     display: inline-block;
     position: relative;
     transition: all ease .6s;
+    // animation: animatePress 2s infinite;
 }
 
 .speedometer::before {
@@ -213,11 +238,19 @@ h2 {
     transform-origin: bottom;
     transform: rotate(calc(var(--r)*1.8deg - 90deg));
     transition: all ease .6s;
+    animation: animatePress .7s infinite;
+    // transform: rotate(var(--my-start-width))!important;
 }
 
 .tituloProf {
     position: absolute;
     top: -19%;
+}
+
+:root {
+    --animateBase: 0!important;
+    --animateMid: 2!important;
+    --my-start-width: -90deg !important;
 }
 
 .d_0 {
@@ -428,6 +461,7 @@ h2 {
 }
 
 //#endregion
+//#region animation and media
 @keyframes shine {
     0% {
         box-shadow: 0px 0px 30px -4px white;
@@ -459,6 +493,18 @@ h2 {
     }
     50% {
         clip-path: polygon( 0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes animatePress {
+    0% {
+        transform: rotate(calc(var(--r)*1.8deg - 90deg));
+    }
+    50% {
+        transform: rotate(calc(var(--r)*1.8deg - 88deg));
+    }
+    100% {
+        transform: rotate(calc(var(--r)*1.8deg - 90deg));
     }
 }
 
@@ -503,6 +549,7 @@ h2 {
     }
 }
 
+//#endregion
 img {
     pointer-events: none;
 }

@@ -1,79 +1,93 @@
-<div class="contGen h100">
-    <div class="jcc">
-        <div class="flx rela mar">
-            <div class="rela ">
-                <img class="pozo" src="./../../../assets/images/icons/bomba.png" alt="">
-                <div class="mainBody">
-                    <div [id]="bomba" class="h100 goUpDown">
-                        <div class="water"></div>
-                        <div class="bodyGrow rela">
-                            <div class="fill"></div>
+<div class="rela">
+    <div class="contGen h100">
+        <div class="jcc">
+            <div class="flx rela mar">
+                <div class="rela ">
+                    <img class="pozo" src="./../../../assets/images/icons/bomba.png" alt="">
+                    <div class="mainBody">
+                        <div [id]="bomba" class="h100 goUpDown">
+                            <div class="water"></div>
+                            <div class="bodyGrow rela">
+                                <div class="fill"></div>
+                            </div>
                         </div>
                     </div>
+                    <div [id]="water" class="agua">
+                        <img class="drop" src="./../../../assets/images/icons/agua.gif">
+                    </div>
                 </div>
-                <div [id]="water" class="agua">
-                    <img class="drop" src="./../../../assets/images/icons/agua.gif">
-                </div>
-            </div>
-            <div class="">
-                <button title="Boton encendido" (click)="changeEnergy(idN)" [id]="idN" class="float btnEnergy1">
+                <div class="">
+                    <button title="Boton encendido" (click)="changeEnergy(shine)" [id]="idN" class="float btnEnergy1">
                     <i [id]="idN +'flashIcon'" class="fa-solid fa-bolt iconFlash"></i>
                     <i [id]="idN +'inner'"class="fa-solid fa-bolt eng"></i>
                 </button>
-            </div>
-            <div class="redLed">
-                <div title="Encendido" [ngClass]="false?'on' : 'off'">
-                    <div [ngClass]="false?'shine' : 'shineOff'">
-                        <div class="shiny"></div>
+                </div>
+                <div class="redLed">
+                    <div title="Encendido" [ngClass]="shine?'on' : 'off'">
+                        <div [ngClass]="shine?'shine' : 'shineOff'">
+                            <div class="shiny"></div>
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="alibot rela">
+                <div class="">
+                    <div [id]="depth" class="prof w100 txac">
+                        <h4>Profundidad de pozo</h4>
+                        <h2>
+                            500 m
+                        </h2>
+                    </div>
+                </div>
+                <div class="flx">
+
+                    <div class="mar rela">
+
+                        <div>
+                            <h3 class="txac">Medidor profundidad</h3>
+                        </div>
+                        <div class="flx jcc">
+                            <div title="Medidor de profundidad" class="bottleCont">
+                                <div [id]="level" class="pipes"></div>
+                                <div class="scale"></div>
+                            </div>
+                        </div>
+                        <div class="jcc">
+                            <h2 [id]="measure">
+                                100%
+                            </h2>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
 
-        <div class="alibot rela">
-            <div class="">
-                <div [id]="depth" class="prof w100 txac">
-                    <h4>Profundidad de pozo</h4>
-                    <h2>
-                        500 m
-                    </h2>
+        <div class="pad alic w100 rest">
+            <div>
+                <div>
+                    <h3 class="txac">Medidor presión</h3>
                 </div>
-            </div>
-            <div class="flx">
-
-                <div class="mar rela">
-
-                    <div>
-                        <h3 class="txac">Medidor profundidad</h3>
-                    </div>
-                    <div class="flx jcc">
-                        <div title="Medidor de profundidad" class="bottleCont">
-                            <div [id]="level" class="pipes"></div>
-                            <div class="scale"></div>
-                        </div>
-                    </div>
-                    <div class="jcc">
-                        <h2 [id]="measure">
-                            100%
-                        </h2>
-                    </div>
+                <div class="flx rela">
+                    <span title="Medidor de presión" [id]="pressure" style="--r:0" class="speedometer"></span>
+                    <h3 class="title" [id]="pressure+'text'"></h3>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <div class="pad alic w100 rest">
-        <div>
-            <div>
-                <h3 class="txac">Medidor presión</h3>
-            </div>
-            <div class="flx rela">
-                <span title="Medidor de presión" [id]="pressure" style="--r:0" class="speedometer"></span>
-                <h3 class="title" [id]="pressure+'text'"></h3>
-            </div>
-            <button hidden [id]="pressure+'aux'" (click)="auxDeg(pressure)"></button>
-        </div>
+    <div class="contLoad" [id]="loadingPanel">
+        <div class="rela">
 
+            <div class="cover">
+
+            </div>
+            <div class="">
+                <iframe [id]="frame" class="frame" width="300" height="300" frameBorder="0" src="https://embed.lottiefiles.com/animation/104492">
+                    La pantalla se encuentra cargando favor de esperar
+                </iframe>
+            </div>
+        </div>
     </div>
 </div>
