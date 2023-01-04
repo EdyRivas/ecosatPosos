@@ -1,4 +1,5 @@
 import { Component, HostListener, Input } from '@angular/core';
+import {CookieService} from 'ngx-cookie-service';
 import { Subject, takeUntil } from 'rxjs';
 import { SocketIOService } from 'src/app/socket-io.service';
 
@@ -11,7 +12,14 @@ export class WaterMeasureComponent {
   @Input() idN: string;
   private destroy$: Subject<void> = new Subject<void>();
   
-  constructor(private socketIoService: SocketIOService) { }
+  constructor(
+    private socketIoService: SocketIOService,
+    private cookieService:CookieService
+  ){ }
+  
+  tituloPozo:string;
+  inputProf:string;
+  profError:string;
 
   bomba:string;
   level:string;
@@ -21,24 +29,82 @@ export class WaterMeasureComponent {
   pressure: string;
   loadingPanel: string;
   frame: string;
+  idTitulo:string;
+  inputName:string;
+  backSett:string;
+  sett:string;
+  settBtn:string;
+  
+  profundi = null;
+  cookProf: string;
+  cookTitle : string;
   ngOnInit(): void {
-    this.bomba = this.idN+'-bomba'
-    this.level = this.idN+'-level'
-    this.measure = this.idN+'-measure'
-    this.water = this.idN+'-water'
-    this.depth= this.idN+'-depth'
-    this.pressure= this.idN+'-pressure'
-    this.loadingPanel= this.idN+'-loadingPanel'
-    this.frame= this.idN+'-frame'
+    this.bomba = this.idN+'-bomba';
+    this.level = this.idN+'-level';
+    this.measure = this.idN+'-measure';
+    this.water = this.idN+'-water';
+    this.depth= this.idN+'-depth';
+    this.pressure= this.idN+'-pressure';
+    this.loadingPanel= this.idN+'-loadingPanel';
+    this.frame= this.idN+'-frame';
+    this.idTitulo= this.idN+'-idTitulo';
+    this.inputName= this.idN+'-inputName';
+    this.backSett= this.idN+'-backSett';
+    this.sett= this.idN+'-sett';
+    this.settBtn= '-settBtn'
+    this.inputProf= this.idN+'-inputProf';
+    this.profError= this.idN+'-profError';
+    this.cookTitle = 'titulo-'+this.idN;
+    this.cookProf = 'profundidad-'+this.idN;
+    this.tituloPozo = this.cookieService.get(this.cookTitle);
     this.subscribeToSocketIoServer();
   }
-
+  
+  
+  
   ngAfterViewInit(){
+    
     let bomba = document.getElementById(this.bomba) as HTMLElement;
     let a = getComputedStyle(bomba)
     this.size = parseInt(a.height);
-  }
+    this.takeTitle()
+    
+    // this.deleteCookie()
+    this.setCookie()
+    let profundidad = this.cookieService.get(this.cookProf);
+    profundidad = profundidad == '' ? null : profundidad;
+    this.profundi = profundidad;
 
+
+    if(!profundidad){
+       setTimeout(() => {
+       this.openSett()
+       }, 800);
+
+    }
+  }
+  setCookie(){
+    if(this.cookieService.get(this.cookTitle) !=null && this.cookieService.get(this.cookProf) != null){
+      return
+    }else{
+      this.cookieService.set(this.cookTitle, null);
+      this.cookieService.set(this.cookProf, null);
+    }
+    
+  }
+  // deleteCookie(){
+  //   this.cookieService.delete('titulo-'+this.idN);
+  // }
+  deleteAll(){
+    this.cookieService.deleteAll();
+  }
+  takeTitle(){
+    let input = document.getElementById(this.inputName) as HTMLInputElement;
+    let inputProf = document.getElementById(this.inputProf) as HTMLInputElement;
+    let title = document.getElementById(this.idTitulo) as HTMLElement;
+    input.value = title.innerHTML;
+    inputProf.value = this.cookieService.get(this.cookProf)
+  }
   size: number;
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -49,7 +115,59 @@ export class WaterMeasureComponent {
     let a = window.getComputedStyle(bomba)
     this.size = parseInt(a.height)
   }
-
+  openSett(){
+    let backSett = document.getElementById(this.backSett) as HTMLElement;
+    let sett = document.getElementById(this.sett) as HTMLElement;
+    sett.style.scale = '0';
+    backSett.style.display = 'flex'
+    setTimeout(() => {
+      sett.style.scale = '1';
+    }, 200);
+  }
+  closeSett(tF){
+    if(!this.profundi){
+      this.displayProfError()
+      return
+    }
+    let backSett = document.getElementById(this.backSett) as HTMLElement;
+    let sett = document.getElementById(this.sett) as HTMLElement;
+    sett.style.scale = '0';
+    setTimeout(() => {
+      backSett.style.display = '';
+    }, 200);
+    if(tF)
+    this.takeTitle()
+    
+  }
+  saveSett(){
+    let inputName = document.getElementById(this.inputName) as HTMLInputElement;
+    let inputProf = document.getElementById(this.inputProf) as HTMLInputElement;
+    let tit  = inputName.value;
+    let prof = inputProf.value
+    tit = tit == '' ? null : tit;
+    prof = prof == '' ? null : prof;
+    
+    if (!prof){
+      this.displayProfError()
+      return
+    }
+    this.profundi = prof;
+    this.tituloPozo = tit;
+    this.cookieService.set(this.cookTitle, inputName.value);
+    this.cookieService.set(this.cookProf, inputProf.value);
+    this.closeSett(false)
+  }
+  displayProfError(){
+    let inputProf = document.getElementById(this.inputProf) as HTMLInputElement;
+    let profError = document.getElementById(this.profError) as HTMLInputElement;
+    inputProf.style.border = '1px solid red';
+    profError.style.scale = '0';
+    profError.style.display = 'block';
+    inputProf.focus();
+    setTimeout(() => {
+      profError.style.scale = '1';
+    }, 100);
+  }
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
@@ -103,10 +221,12 @@ export class WaterMeasureComponent {
     
   }
   waterLevel(mesure){
+    if(!this.profundi)
+      return
     let bomba = document.getElementById(this.bomba) as HTMLElement;
     let measure = document.getElementById(this.measure) as HTMLElement;
-    let percentageFake:any = (((parseInt(mesure)*100)/500)-10) ;
-    let percentage:any = ((parseInt(mesure)*100)/500);
+    let percentageFake:any = (((parseInt(mesure)*100)/this.profundi)-10) ;
+    let percentage:any = ((parseInt(mesure)*100)/this.profundi);
     if(percentageFake < 0)
       percentageFake=percentageFake + 10;
     if(percentageFake < 0)
@@ -117,10 +237,12 @@ export class WaterMeasureComponent {
     measure.innerHTML = percentage + '%'
   }
   levelBar(mesure){
+    if(!this.profundi)
+      return
     let level = document.getElementById(this.level) as HTMLElement;
     let depth = document.getElementById(this.depth) as HTMLElement;
     depth.innerHTML = parseFloat(mesure).toFixed(2) + 'm';
-    let percentageFake:any = (((parseInt(mesure)*100)/500)-10) ;
+    let percentageFake:any = (((parseInt(mesure)*100)/this.profundi)-10) ;
     if(percentageFake < 0)
       percentageFake=percentageFake + 10;
     if(percentageFake < 0)

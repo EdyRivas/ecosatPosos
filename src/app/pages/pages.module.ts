@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 
 import { MaterialModule } from '../material/material.module'; 
 import { WaterMeasureComponent } from '../components/water-measure/water-measure.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { WaterMeasureComponent } from '../components/water-measure/water-measure
     CommonModule,
     PagesRoutingModule,
     MaterialModule,
-    
-  ]
+  ],
+  providers: [
+    CookieService
+  ],
 })
 export class PagesModule { }

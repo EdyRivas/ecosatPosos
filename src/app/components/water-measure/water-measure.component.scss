@@ -29,6 +29,12 @@
     height: 20%;
 }
 
+.over {
+    overflow: auto;
+    box-sizing: border-box;
+    height: 90%;
+}
+
 .mainBody {
     position: absolute !important;
     bottom: 10px;
@@ -77,7 +83,8 @@
 }
 
 .pad {
-    padding: 15px;
+    padding: 25px;
+    box-sizing: border-box;
 }
 
 .w90 {
@@ -209,6 +216,159 @@ h2 {
 
 .frame {
     transition: all ease .3s
+}
+
+.settings {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+}
+
+.marT {
+    margin-top: 50px;
+}
+
+.btnSett {
+    background-color: transparent !important;
+    border: none;
+    outline: none;
+    color: white;
+    transition: all ease .10s;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.btnSett:hover,
+.btnClose:hover {
+    scale: 1.05;
+}
+
+.btnSett:active,
+.btnClose:active {
+    scale: 0.90 !important;
+}
+
+.cartaAbs {
+    width: 25%;
+    height: 30%;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 1px 2px 4px 0px #000000a5;
+    display: flex;
+    flex-direction: column;
+    min-width: 372px;
+    min-height: 272px;
+    transition: all ease .3s;
+}
+
+.backSett {
+    top: 0;
+    position: fixed;
+    left: 0;
+    backdrop-filter: blur(3px) brightness(.8);
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnClose {
+    top: 2px;
+    right: 10px;
+    position: absolute;
+    transition: all ease .3s;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    transition: all ease .10s;
+}
+
+.header {
+    position: relative;
+    min-height: 32px;
+}
+
+.w70 {
+    width: 90%;
+}
+
+.contenedor {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.marT5 {
+    margin-top: 10px;
+}
+
+.mt14 {
+    margin-top: 14px;
+}
+
+.tit {
+    position: fixed;
+    top: 10px;
+    left: 44%;
+    color: white;
+    display: none;
+}
+
+.btnAc,
+.btnCan {
+    border: none;
+    outline: none;
+    background-color: #3b3b3b;
+    color: white;
+    transition: all ease .10s;
+    border-radius: 5px;
+    width: 120px;
+    height: 25px;
+}
+
+.darker {
+    background-color: #3b3b3b;
+}
+
+.btnAc {
+    margin-left: 15px;
+    background-color: #dee4f2;
+    color: black;
+}
+
+.btnAc:hover,
+.btnCan:hover {
+    scale: 1.1;
+}
+
+.btnAc:active,
+.btnCan:active {
+    filter: brightness(.80);
+    scale: .89 !important;
+}
+
+.botonera {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: right;
+    bottom: 10px;
+    right: 10px;
+    width: 100%;
+}
+
+.err {
+    transition: all 0.2s ease;
+    color: red;
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 7px !important;
+    text-align: center;
+    display: none;
 }
 
 //#region pressure

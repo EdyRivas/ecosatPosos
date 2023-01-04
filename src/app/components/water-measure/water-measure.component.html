@@ -1,92 +1,142 @@
-<div class="rela">
-    <div class="contGen h100">
-        <div class="jcc">
-            <div class="flx rela mar">
-                <div class="rela ">
-                    <img class="pozo" src="./../../../assets/images/icons/bomba.png" alt="">
-                    <div class="mainBody">
-                        <div [id]="bomba" class="h100 goUpDown">
-                            <div class="water"></div>
-                            <div class="bodyGrow rela">
-                                <div class="fill"></div>
+<div class="contGen h100">
+    <div class="header rela">
+        <div>
+
+            <h1 class="" [id]="idTitulo">{{tituloPozo}}</h1>
+        </div>
+        <div>
+            <button [id]="settBtn" mat-icon-button class="btnSett" (click)="openSett()">
+                <mat-icon>settings</mat-icon>
+            </button>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="rela rest over h100">
+        <div class=" pad contGen h100">
+            <div class="jcc ">
+                <div class="flx rela mar ">
+                    <div class="rela ">
+                        <img class="pozo " src="./../../../assets/images/icons/bomba.png " alt=" ">
+                        <div class="mainBody ">
+                            <div [id]="bomba " class="h100 goUpDown ">
+                                <div class="water "></div>
+                                <div class="bodyGrow rela ">
+                                    <div class="fill "></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div [id]="water " class="agua ">
+                            <img class="drop " src="./../../../assets/images/icons/agua.gif ">
+                        </div>
+                    </div>
+                    <div class=" ">
+                        <button title="Boton encendido " (click)="changeEnergy(shine) " [id]="idN " class="float btnEnergy1 ">
+                    <i [id]="idN + 'flashIcon' " class="fa-solid fa-bolt iconFlash "></i>
+                    <i [id]="idN + 'inner' "class="fa-solid fa-bolt eng "></i>
+                </button>
+                    </div>
+                    <div class="redLed ">
+                        <div title="Encendido " [ngClass]="shine? 'on' : 'off' ">
+                            <div [ngClass]="shine? 'shine' : 'shineOff' ">
+                                <div class="shiny "></div>
                             </div>
                         </div>
                     </div>
-                    <div [id]="water" class="agua">
-                        <img class="drop" src="./../../../assets/images/icons/agua.gif">
-                    </div>
                 </div>
-                <div class="">
-                    <button title="Boton encendido" (click)="changeEnergy(shine)" [id]="idN" class="float btnEnergy1">
-                    <i [id]="idN +'flashIcon'" class="fa-solid fa-bolt iconFlash"></i>
-                    <i [id]="idN +'inner'"class="fa-solid fa-bolt eng"></i>
-                </button>
-                </div>
-                <div class="redLed">
-                    <div title="Encendido" [ngClass]="shine?'on' : 'off'">
-                        <div [ngClass]="shine?'shine' : 'shineOff'">
-                            <div class="shiny"></div>
+
+                <div class="alibot rela ">
+                    <div class=" ">
+                        <div [id]="depth " class="prof w100 txac ">
+                            <h4>Profundidad de pozo</h4>
+                            <h2>
+                                -- m
+                            </h2>
                         </div>
+                    </div>
+                    <div class="flx ">
+
+                        <div class="mar rela ">
+
+                            <div>
+                                <h3 class="txac ">Medidor profundidad</h3>
+                            </div>
+                            <div class="flx jcc ">
+                                <div title="Medidor de profundidad " class="bottleCont ">
+                                    <div [id]="level " class="pipes "></div>
+                                    <div class="scale "></div>
+                                </div>
+                            </div>
+                            <div class="jcc ">
+                                <h2 [id]="measure ">
+                                    100%
+                                </h2>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
 
-            <div class="alibot rela">
-                <div class="">
-                    <div [id]="depth" class="prof w100 txac">
-                        <h4>Profundidad de pozo</h4>
-                        <h2>
-                            500 m
-                        </h2>
+            <div class="alic w100 rest ">
+                <div>
+                    <div>
+                        <h3 class="txac ">Medidor presión</h3>
                     </div>
-                </div>
-                <div class="flx">
-
-                    <div class="mar rela">
-
-                        <div>
-                            <h3 class="txac">Medidor profundidad</h3>
-                        </div>
-                        <div class="flx jcc">
-                            <div title="Medidor de profundidad" class="bottleCont">
-                                <div [id]="level" class="pipes"></div>
-                                <div class="scale"></div>
-                            </div>
-                        </div>
-                        <div class="jcc">
-                            <h2 [id]="measure">
-                                100%
-                            </h2>
-                        </div>
+                    <div class="flx rela ">
+                        <span title="Medidor de presión " [id]="pressure " style="--r:0 " class="speedometer "></span>
+                        <h3 class="title " [id]="pressure+ 'text' "></h3>
                     </div>
-
                 </div>
             </div>
         </div>
 
-        <div class="pad alic w100 rest">
-            <div>
-                <div>
-                    <h3 class="txac">Medidor presión</h3>
+        <div class="contLoad " [id]="loadingPanel ">
+            <div class="rela ">
+
+                <div class="cover ">
+
                 </div>
-                <div class="flx rela">
-                    <span title="Medidor de presión" [id]="pressure" style="--r:0" class="speedometer"></span>
-                    <h3 class="title" [id]="pressure+'text'"></h3>
+                <div class=" ">
+                    <iframe [id]="frame " class="frame " width="300 " height="300 " frameBorder="0 " src="https://embed.lottiefiles.com/animation/104492 ">
+                    La pantalla se encuentra cargando favor de esperar
+                </iframe>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="contLoad" [id]="loadingPanel">
-        <div class="rela">
-
-            <div class="cover">
-
-            </div>
-            <div class="">
-                <iframe [id]="frame" class="frame" width="300" height="300" frameBorder="0" src="https://embed.lottiefiles.com/animation/104492">
-                    La pantalla se encuentra cargando favor de esperar
-                </iframe>
+</div>
+<div class="backSett " [id]="backSett ">
+    <div class="cartaAbs " [id]="sett ">
+        <div class="header darker">
+            <h1>Configuración de Pozo</h1>
+            <button (click)="closeSett(true) " mat-icon-button class="btnClose ">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+        <div class="contenedor rela">
+            <div class="w100 jcc h100">
+                <div class="w70 mt14 h100 ">
+                    <div class="w100">
+                        <div class=" ">
+                            <label class="lblUp ">
+                            Nombre del Pozo
+                        </label>
+                            <input [id]="inputName " class="input w100 " type="text " id=" " name=" ">
+                        </div>
+                        <div class="marT5 ">
+                            <label class="lblUp ">
+                                Capacidad Máxima del Pozo *
+                            </label>
+                            <input placeholder="Ej: 120" [id]="inputProf" class="input w100 " type="number" id=" " name=" ">
+                            <h6 [id]="profError" class="err">*Debe de especificar la capacidad máxima del pozo para continuar*</h6>
+                        </div>
+                        <div class="botonera">
+                            <button (click)="closeSett(true)" class="btnCan">Cancelar</button>
+                            <button (click)="saveSett()" class="btnAc">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

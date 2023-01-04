@@ -11,6 +11,6 @@
 
 export const environment = {
     production: false,
-    SOCKET_ENDPOINT: 'http://192.168.10.157:9001',
+    SOCKET_ENDPOINT: 'http://192.168.10.152:9001',
   };
   

@@ -114,10 +114,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 0 24px 0 24px !important;
 }
 
-// .mat-horizontal-stepper-content {
-//     height: 100%;
-//     overflow: auto;
-// }
+.lblUp {
+    display: block;
+    margin-left: 4px;
+    font-weight: 400;
+}
+
+.input {
+    position: relative;
+    cursor: text;
+    width: 100%;
+    padding: 7px 0 7px 7px;
+    border: solid 1px #a1adb6a1;
+    border-radius: 5px;
+    outline: none;
+    transition: all ease 0.25s;
+    background-color: white !important;
+    box-sizing: border-box;
+}
+
+.input:focus {
+    border-bottom: 2px solid #123c81 !important;
+    border-radius: 7px 7px 0 0 !important;
+    background-color: rgb(87 133 233 / 11%) !important;
+}
+
 
 /* #region estilo tablas */
 
