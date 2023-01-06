@@ -234,7 +234,7 @@ export class WaterMeasureComponent {
     if(percentage< 0)
       percentageFake=0;
     bomba.style.maxHeight = percentageFake + '%';
-    measure.innerHTML = percentage + '%'
+    measure.innerHTML = percentage.toFixed(2) + '%'
   }
   levelBar(mesure){
     if(!this.profundi)
